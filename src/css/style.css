@@ -1,0 +1,253 @@
+/**********************************************/
+/* Fonts */
+/**********************************************/
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/OpenSans-Bold.woff2') format('woff2'),
+    url('../fonts/OpenSans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/OpenSans.woff2') format('woff2'),
+    url('../fonts/OpenSans.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/OpenSans-Light.woff2') format('woff2'),
+    url('../fonts/OpenSans-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/**********************************************/
+/* Reset */
+/**********************************************/
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+ul, ol {
+    list-style: none;
+    padding-left: 0;
+}
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+input, button, textarea, select, a {
+    font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+#root, #__next {
+    isolation: isolate;
+}
+
+/**********************************************/
+/* Global */
+/**********************************************/
+html {
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+}
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/**********************************************/
+/* Header */
+/**********************************************/
+.header {
+    background-color: var(--bg-color);
+    box-shadow: 0px 3px 6px 0px rgb(0 0 0 / 20%);
+    padding: 20px 0;
+}
+.header__logo__img {
+    height: 50px;
+}
+.header__menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.header__menu__list {
+    display: flex;
+    align-items: center;
+
+    position: absolute;
+    left: -55%;
+    top: 0;
+    padding-top: 20%;
+    flex-direction: column;
+    height: 100%;
+    background: #fff;
+    z-index: 10;
+    width: 50%;
+    background-color: var(--side-menu-bg-color);
+    box-shadow: 3px 0 6px 0 rgb(0 0 0 / 20%);
+    transition: left 0.5s ease;
+}
+.header__menu__list--expanded {
+    left: 0;
+}
+.header__menu__item {
+    width: 100%;
+    margin: 0;
+    border-top: 2px solid var(--indicator-bg-color);
+}
+.header__menu__item:last-of-type {
+    border-bottom: 2px solid var(--indicator-bg-color);
+}
+
+.header__menu__link {
+    display: block;
+    text-align: center;
+    width: 100%;
+    text-decoration: none;
+    color: var(--link-color);
+    font-size: 1.125rem;
+    padding: 20px 0;
+    transition: background-color 0.3s ease-in-out;
+}
+.header__menu__link:hover {
+    background-color: var(--link-hover-color);
+}
+/**********************************************/
+/* Theme Switcher */
+/**********************************************/
+.header__theme-switcher {
+    position: relative;
+    display: flex;
+    gap: 5px;
+    border: 2px solid var(--indicator-bg-color);
+    border-radius: 12px;
+    box-shadow: inset 0 0 16px 1px var(--indicator-bg-color);
+}
+.header__theme-switcher__button {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    font-size: 0;
+    overflow: hidden;
+    padding: 20px;
+    color: var(--indicator-text-color);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position-x: 5px;
+    background-position-y: center;
+    background-size: 25px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    transition: filter 0.3s ease-in-out;
+}
+
+.header__theme-switcher__button--light {
+    background-image: url(../images/sun.svg);
+}
+.header__theme-switcher__button--light.header__theme-switcher__button--active ~ .header__theme-switcher__indicator {
+    left: 0;
+}
+.header__theme-switcher__button--auto {
+    background-image: url(../images/eclipse.svg);
+}
+.header__theme-switcher__button--auto.header__theme-switcher__button--active ~ .header__theme-switcher__indicator {
+    left: 50%;
+    transform: translateX(-50%);
+}
+.header__theme-switcher__button--dark {
+    background-image: url(../images/moon.svg);
+}
+.header__theme-switcher__button--dark.header__theme-switcher__button--active ~ .header__theme-switcher__indicator {
+    left: 100%;
+    transform: translateX(-100%);
+}
+
+.header__theme-switcher__indicator {
+    position: absolute;
+    height: 100%;
+    width: 33.33%;
+    background-color: var(--indicator-bg-color);
+    border-radius: 10px;
+    z-index: 1;
+    transition: left 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+/**********************************************/
+/* Touch */
+/**********************************************/
+.header__menu__touch {
+    width: 42px;
+    height: 42px;
+    border: 2px solid var(--indicator-bg-color);
+    background-color: transparent;
+    border-radius: 5px;
+    box-shadow: inset 0 0 16px 1px var(--indicator-bg-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.header__menu__touch__line {
+    width: 100%;
+    height: 4px;
+    margin: 2px 0;
+    background-color: var(--text-color);
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+.header__menu__touch--expanded {
+    position: relative;
+}
+.header__menu__touch--expanded .header__menu__touch__line {
+    position: absolute;
+    left: 0;
+    top: calc(50% - 2px);
+    margin: 0;
+}
+.header__menu__touch--expanded .header__menu__touch__line:nth-child(1) {
+    transform: rotate(45deg);
+}
+.header__menu__touch--expanded .header__menu__touch__line:nth-child(2) {
+    opacity: 0;
+}
+.header__menu__touch--expanded .header__menu__touch__line:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+@import url("media.css");
