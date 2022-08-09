@@ -30,13 +30,13 @@ gulp.task('scripts', gulp.series(function() {
 // Styles
 gulp.task('styles', gulp.series(function() {
   return gulp.src('src/css/*.css')
-    .pipe(concatCss('bundle.css'))
+    .pipe(concatCss('style.css'))
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ios 6', 'android 4'))
     .pipe(gulp.dest('dist/css'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(minifycss())
     .pipe(gulp.dest('dist/css'))
-    .pipe(browserSync.stream())
+    .pipe(browserSync.reload({stream:true}))
 }));
 
 // Themes
