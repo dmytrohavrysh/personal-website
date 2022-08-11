@@ -266,7 +266,9 @@ var Particles = function(window, document) {
     var _ = this;
     
     _._draw();
-      // _._animation = window.requestAnimationFrame(_._animate);
+    if(_.options.speed > 0) {
+          _._animation = window.requestAnimationFrame(_._animate);
+    }
   };
   
   /**
@@ -321,7 +323,7 @@ var Particles = function(window, document) {
       parentHeight = window.innerHeight;
     }
     
-    _.context.clearRect(0, 0, element.width, element.height);
+    _.context.clearRect(0, 0, document.body.clientWidth, document.body.clientHeight);
     _.context.beginPath();
     
     for(var i = storage.length; i--;) {

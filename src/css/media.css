@@ -8,23 +8,6 @@
     .header__logo__img {
         height: 50px;
     }
-    .section__heading {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-    .section__heading::before,
-    .section__heading::after {
-        content: '';
-        flex: 1;
-        height: 4px;
-        border-radius: 5px;
-        background: linear-gradient(-90deg, var(--indicator-bg-color), transparent);
-        margin: 0 10px;
-    }
-    .section__heading::after {
-        transform: rotate(180deg);
-    }
     .header__menu__touch {
         display: none;
     }
@@ -98,80 +81,93 @@
         padding: 10px;
         padding-left: 40px;
     }
+    .skills-section {
+        padding: 0;
+        border-bottom: #dddddd solid 1px;
+    }
     .skills__skill {
         position: absolute;
         background-color: transparent;
     }
+    .skills-section__image {
+        margin-bottom: 0;
+    }
     .skills__skill:nth-of-type(1) {
         font-size: 3rem;
         left: 200px;
-        top: 50px;
+        top: 0;
     }
     .skills__skill:nth-of-type(2) {
         font-size: 3rem;
         right: 200px;
-        top: 100px;
+        top: 50px;
     }
     .skills__skill:nth-of-type(3) {
         font-size: 3rem;
         left: 30px;
-        top: 200px;
+        top: 110px;
     }
     .skills__skill:nth-of-type(4) {
         font-size: 2.5rem;
-        left: 150px;
-        top: 280px;
+        left: 110px;
+        top: 230px;
     }
     .skills__skill:nth-of-type(5) {
         font-size: 2.5rem;
         right: 100px;
-        top: 200px;
+        top: 150px;
     }
     .skills__skill:nth-of-type(6) {
         font-size: 2rem;
         right: 50px;
-        top: 300px;
+        top: 250px;
     }
     .skills__skill:nth-of-type(7) {
         font-size: 2.5rem;
-        right: 100px;
-        top: 350px;
+        right: 90px;
+        top: 300px;
     }
     .skills__skill:nth-of-type(8) {
         font-size: 2rem;
-        left: 160px;
-        top: 400px;
+        left: 80px;
+        top: 350px;
     }
     .skills__skill:nth-of-type(9) {
         font-size: 2rem;
         right: 140px;
-        top: 60px;
+        top: 10px;
     }
     .skills__skill:nth-of-type(10) {
         font-size: 1.5rem;
         right: 150px;
-        top: 300px;
+        top: 220px;
     }
     .skills__skill:nth-of-type(11) {
         font-size: 1.5rem;
         left: 40px;
-        top: 350px;
+        top: 300px;
     }
     .skills__skill:nth-of-type(12) {
         font-size: 1.8rem;
         right: 150px;
-        top: 430px;
+        top: 380px;
     }
     .skills__skill:nth-of-type(13) {
         font-size: 1.5rem;
         left: 100px;
-        top: 120px;
+        top: 70px;
     }
     .skills__skill:nth-of-type(14) {
         font-size: 1.8rem;
         right: 70px;
-        top: 150px;
+        top: 100px;
     }
+    .skills__skill:nth-of-type(15) {
+        font-size: 2rem;
+        left: 270px;
+        top: 190px;
+    }
+    
     .work__footer {
         text-align: center;
     }
@@ -191,59 +187,63 @@
     }
     .skills__skill:nth-of-type(1) {
         left: 250px;
-        top: 100px;
+        top: 50px;
     }
     .skills__skill:nth-of-type(2) {
-        right: 250px;
-        top: 150px;
+        right: 300px;
+        top: 100px;
     }
     .skills__skill:nth-of-type(3) {
         left: 80px;
-        top: 250px;
+        top: 200px;
     }
     .skills__skill:nth-of-type(4) {
-        left: 200px;
-        top: 320px;
+        left: 130px;
+        top: 290px;
     }
     .skills__skill:nth-of-type(5) {
-        right: 150px;
-        top: 250px;
+        right: 240px;
+        top: 200px;
     }
     .skills__skill:nth-of-type(6) {
-        right: 50px;
-        top: 350px;
+        right: 80px;
+        top: 190px;
     }
     .skills__skill:nth-of-type(7) {
-        right: 150px;
-        top: 400px;
+        right: 120px;
+        top: 270px;
     }
     .skills__skill:nth-of-type(8) {
-        left: 210px;
-        top: 450px;
+        left: 100px;
+        top: 400px;
     }
     .skills__skill:nth-of-type(9) {
         right: 190px;
-        top: 100px;
+        top: 50px;
     }
     .skills__skill:nth-of-type(10) {
-        right: 200px;
+        right: 180px;
         top: 350px;
     }
     .skills__skill:nth-of-type(11) {
-        left: 90px;
-        top: 400px;
+        left: 290px;
+        top: 330px;
     }
     .skills__skill:nth-of-type(12) {
-        right: 200px;
-        top: 480px;
+        right: 150px;
+        top: 400px;
     }
     .skills__skill:nth-of-type(13) {
         left: 150px;
-        top: 170px;
+        top: 120px;
     }
     .skills__skill:nth-of-type(14) {
-        right: 90px;
-        top: 200px;
+        right: 190px;
+        top: 150px;
+    }
+    .skills__skill:nth-of-type(15) {
+        left: 340px;
+        top: 160px;
     }
 }
 @media (min-width: 1400px) {
@@ -291,7 +291,7 @@
     }
     .skills__skill:nth-of-type(8) {
         font-size: 2rem;
-        left: 300px;
+        left: 260px;
         top: 400px;
     }
     .skills__skill:nth-of-type(9) {
@@ -311,7 +311,7 @@
     }
     .skills__skill:nth-of-type(12) {
         font-size: 1.8rem;
-        right: 380px;
+        right: 300px;
         top: 430px;
     }
     .skills__skill:nth-of-type(13) {

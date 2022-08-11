@@ -19,7 +19,7 @@
             <nav class="header__menu">
                 <ul class="header__menu__list">
                     <li class="header__menu__item"><a href="#" class="header__menu__link">Works</a></li>
-                    <li class="header__menu__item"><a href="#" class="header__menu__link">Resume</a></li>
+                    <li class="header__menu__item"><a href="#" class="header__menu__link">About me</a></li>
                     <li class="header__menu__item"><a href="#" class="header__menu__link">Contact</a></li>
                 </ul>
                 <div class="header__theme-switcher" aria-label="Theme swither">
@@ -41,7 +41,10 @@
         <div class="wrapper main__wrapper">
             <section class="skills-section">
                 <h2 class="visually-hidden">My Skills</h2>
-                <img src="images/me.png" alt="My portrait" height="600" class="skills-section__image">
+                <picture >
+                    <source type="image/webp" srcset="images/me.webp">
+                    <img src="images/me-2.png" class="skills-section__image" alt="My portrait" width="550">
+                </picture>
                 <div class="skills">
                     <span class="skills__skill">HTML</span>
                     <span class="skills__skill">CSS</span>
@@ -57,6 +60,7 @@
                     <span class="skills__skill">BEM</span>
                     <span class="skills__skill">Bootstrap</span>
                     <span class="skills__skill">Canvas</span>
+                    <span class="skills__skill">Git</span>
                 </div>
             </section>
             <section class="works-section">
@@ -151,22 +155,26 @@
                 <p class="footer__copyright">&copy;Dmytro Havrysh. All rights reserved.</p>
                 <ul class="footer__socials">
                     <li class="footer__socials__item">
-                        <a href="#" class="footer__socials__link">
+                        <a href="https://facebook.com/dmytro.havrysh3" class="footer__socials__link" target="_blank">
                             <svg class="footer__socials__icon">
                                 <use xlink:href="images/socials.svg#facebook"><span class="footer__socials__span">/dmytro.havrysh3</span></use>
                             </svg>
                         </a>
                     </li>
-                    <li class="footer__socials__item"><a href="#" class="footer__socials__link">
-                        <svg class="footer__socials__icon">
-                            <use xlink:href="images/socials.svg#github"><span class="footer__socials__span">/dmytro.havrysh</span></use>
-                        </svg>
-                    </a></>
-                    <li class="footer__socials__item"><a href="#" class="footer__socials__link">
-                        <svg class="footer__socials__icon">
-                            <use xlink:href="images/socials.svg#email"><span class="footer__socials__span">developer@dmytro-havrysh.site</span></use>
-                        </svg>
-                    </a></>
+                    <li class="footer__socials__item">
+                        <a href="https://github.com/dmytrohavrysh" target="_blank" class="footer__socials__link">
+                            <svg class="footer__socials__icon">
+                                <use xlink:href="images/socials.svg#github"><span class="footer__socials__span">/dmytrohavrysh</span></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="footer__socials__item">
+                        <a href="mailto:developer@dmytro-havrysh.site" class="footer__socials__link">
+                            <svg class="footer__socials__icon">
+                                <use xlink:href="images/socials.svg#email"><span class="footer__socials__span">developer@dmytro-havrysh.site</span></use>
+                            </svg>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </footer>

@@ -268,7 +268,9 @@
       var _ = this;
       
       _._draw();
-        _._animation = window.requestAnimationFrame(_._animate);
+      if(_.options.speed > 0) {
+            _._animation = window.requestAnimationFrame(_._animate);
+      }
     };
     
     /**
@@ -323,7 +325,7 @@
         parentHeight = window.innerHeight;
       }
       
-      _.context.clearRect(0, 0, element.width, element.height);
+      _.context.clearRect(0, 0, document.body.clientWidth, document.body.clientHeight);
       _.context.beginPath();
       
       for(var i = storage.length; i--;) {
@@ -556,11 +558,19 @@
 
   particles.init({
       selector: '#background',
-      maxParticles: 500,
+      maxParticles: 1000,
+      minDistance: 120,
       connectParticles: true,
       color: '#cccccc',
       sizeVariations: 5,
+      speed: 0,
       responsive: [
+          {
+              breakpoint: 2000, 
+              options: {
+                  maxParticles: 600,
+              }
+          },
           {
               breakpoint: 1400, 
               options: {
@@ -575,12 +585,6 @@
           },
           {
               breakpoint: 768,
-              options: {
-                  maxParticles: 150,
-              }
-          },
-          {
-              breakpoint: 550,
               options: {
                   maxParticles: 0,
               }
