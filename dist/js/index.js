@@ -268,7 +268,7 @@
       var _ = this;
       
       _._draw();
-      //   _._animation = window.requestAnimationFrame(_._animate);
+        _._animation = window.requestAnimationFrame(_._animate);
     };
     
     /**
@@ -553,6 +553,7 @@
   // Particles
   /////////////////////////////////////////////
   const particles = new Particles(window, document);
+
   particles.init({
       selector: '#background',
       maxParticles: 500,

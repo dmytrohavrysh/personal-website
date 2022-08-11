@@ -266,7 +266,7 @@ var Particles = function(window, document) {
     var _ = this;
     
     _._draw();
-    //   _._animation = window.requestAnimationFrame(_._animate);
+      // _._animation = window.requestAnimationFrame(_._animate);
   };
   
   /**

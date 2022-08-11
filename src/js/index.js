@@ -5,6 +5,7 @@ import Switcher from './theme-switcher.js';
 // Particles
 /////////////////////////////////////////////
 const particles = new Particles(window, document);
+
 particles.init({
     selector: '#background',
     maxParticles: 500,
