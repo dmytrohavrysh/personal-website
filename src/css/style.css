@@ -72,7 +72,7 @@ html {
 .wrapper {
     width: 100%;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -113,25 +113,25 @@ html {
     padding: 20px 0;
     margin-bottom: 10px;
     position: sticky;
+    z-index: 10;
 }
 .header__logo__img {
-    height: 50px;
+    height: 40px;
 }
 .header__menu {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 5px;
 }
 .header__menu__list {
     display: flex;
     align-items: center;
-
-    position: absolute;
+    position: fixed;
     left: -55%;
     top: 0;
     padding-top: 20%;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
     background: #fff;
     z-index: 10;
     width: 50%;
@@ -317,7 +317,50 @@ html {
 }
 .work {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 10px;
 }
-
+.work:not(:last-of-type)::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin: 10px 0 25px;
+    background-color: var(--indicator-bg-color);
+}
+.work:nth-of-type(2n-1) .work__picture{
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+.work__image {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.01) 0px 1px 3px 0px, rgba(27, 31, 35, 0.08) 0px 0px 0px 1px;
+}
+.work__heading {
+    text-align: center;
+    margin: 10px 0;
+    background: linear-gradient(90deg, transparent, var(--indicator-bg-color), transparent);
+    color: var(--heading-color);
+}
+.work__text {
+    font-size: 1.125rem;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+.work__link {
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    text-decoration: none;
+    background-color: var(--btn-bg);
+    color: #fff;
+    font-size: 1.125rem;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease-in-out;
+}
+.work__link:hover {
+    background-color: var(--btn-bg-hover);
+}
 @import url("media.css");
