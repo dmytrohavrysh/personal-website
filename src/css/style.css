@@ -1,3 +1,6 @@
+:root {
+    --socials-size: 50px;
+}
 /**********************************************/
 /* Fonts */
 /**********************************************/
@@ -102,14 +105,14 @@ html {
     position: absolute;
     white-space: nowrap;
     width: 1px;
-  }
+}
 
 /**********************************************/
 /* Header */
 /**********************************************/
 .header {
     background-color: var(--bg-color);
-    box-shadow: 0px 3px 6px 0px rgb(0 0 0 / 20%);
+    box-shadow: 0px 3px 6px 0px var(--shadow-color);
     padding: 20px 0;
     margin-bottom: 10px;
     position: sticky;
@@ -358,9 +361,61 @@ html {
     font-size: 1.125rem;
     padding: 10px 15px;
     border-radius: 6px;
+    box-shadow: var(--btn-shadow-color) 0px 7px 25px 0px;
     transition: background-color 0.3s ease-in-out;
 }
 .work__link:hover {
     background-color: var(--btn-bg-hover);
 }
+/**********************************************/
+/* Footer */
+/**********************************************/
+.footer {
+    background-color: var(--bg-color);
+    box-shadow: 0px -3px 6px 0px var(--shadow-color);
+    padding: 20px 0;
+    margin-top: 10px;
+}
+.footer__wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.footer__socials {
+    display: flex;
+}
+.footer__socials__item {
+    cursor: pointer;
+    height: var(--socials-size);
+    max-width: var(--socials-size);
+    width: var(--socials-size);
+    border: 1px solid var(--indicator-bg-color);
+    border-radius: 30px;
+    background: var(--bg-color);
+    margin: 5px;
+    transition: all 0.3s linear;
+}
+.footer__socials__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--link-color);
+    text-decoration: none;
+}
+.footer__socials__icon {
+    width: var(--socials-size);
+    height: var(--socials-size);
+}
+.footer__socials__span {
+    width: 0px;
+    overflow: hidden;
+    margin: 0 auto;
+    transition: all 0.3s linear;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/**********************************************/
+/* Media */
+/**********************************************/
 @import url("media.css");

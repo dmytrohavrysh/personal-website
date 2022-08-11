@@ -8,7 +8,7 @@ const Switcher = (classOfSwitcher) => {
         localStorage.setItem('theme', currScheme);
     }
     setActiveClass(switcher.querySelector(`.${classOfSwitcher}__button--${currScheme}`));
-
+    
     switcherButtons.forEach(button => {
         button.addEventListener('click', e => {
             const newScheme = button.textContent.toLowerCase();
@@ -17,7 +17,7 @@ const Switcher = (classOfSwitcher) => {
             setActiveClass(button);
         }); 
     });    
-
+    
     function setActiveClass(button) {
         if(button.classList.contains(`${classOfSwitcher}__button--active`)) return;
         button.classList.add(`${classOfSwitcher}__button--active`);
