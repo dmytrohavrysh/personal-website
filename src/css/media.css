@@ -82,8 +82,35 @@
         padding-left: 40px;
     }
     .skills-section {
+        height: 500px;
+    }
+    .skills-section__image {
+        position: fixed;
+        z-index: 10;
+        left: 49%;
+        transform: translateX(-50%);
+        height: 500px;
+        width: auto;
+        pointer-events: none;
+    }
+    .skills__me__eye {
+        display: block;
+        position: fixed;
+        z-index: 10;
+        width: 16.55px;    
+        top: 259.7px;
+        left: 50%;
+    }
+    .skills__me__right-eye {
+        transform: translateX(calc(35px + var(--eyes-shift)));
+        top: 261px;
+    }
+    .skills__me__left-eye {
+        transform: translateX(calc(-26px + var(--eyes-shift)));
+    }
+    .skills-section {
         padding: 0;
-        border-bottom: #dddddd solid 1px;
+        border-bottom: var(--indicator-bg-color) solid 1px;
     }
     .skills__skill {
         position: absolute;
@@ -166,6 +193,9 @@
         font-size: 2rem;
         left: 270px;
         top: 190px;
+    }
+    .works-section {
+        z-index: 20;
     }
     
     .work__footer {
@@ -250,9 +280,22 @@
     .wrapper {
         width: 1370px;
     }
-    .skills-section__image {
-        width: auto;
+    .skills-section {
         height: 700px;
+    }
+    .skills-section__image {
+        height: 700px;
+    }
+    .skills__me__eye {
+        width: 23.2px;
+        top: 311px;
+    }
+    .skills__me__left-eye {
+        transform: translateX(calc(-36px + var(--eyes-shift)));
+    }
+    .skills__me__right-eye {
+        top: 313px;
+        transform: translateX(calc(51px + var(--eyes-shift)));
     }
     .skills__skill:nth-of-type(1) {
         font-size: 3rem;
@@ -326,6 +369,15 @@
     }
 }
 @media (min-width: 1900px) {
+    .skills-section__image {
+        left: 50%;
+    }
+    .skills__me__left-eye {
+        transform: translateX(calc(-22px + var(--eyes-shift)));
+    }
+    .skills__me__right-eye {
+        transform: translateX(calc(65px + var(--eyes-shift)));
+    }
     .wrapper {
         width: 1870px;
     }

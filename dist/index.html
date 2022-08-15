@@ -4,8 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/themes/light.min.css">
+    <title>Dmytro Havrysh</title>
+    <meta name="color-scheme" content="light dark">
+    <script>
+      if (window.matchMedia('(prefers-color-scheme: dark)').media === 'not all') {
+        document.documentElement.style.display = 'none';
+        document.head.insertAdjacentHTML(
+          'beforeend',
+          '<link rel="stylesheet" href="/light.css" onload="document.documentElement.style.display = \'\'">',
+        );
+      }
+    </script>
+    <link rel="stylesheet" href="css/themes/dark.min.css" media="(prefers-color-scheme: dark)" />
+    <link rel="stylesheet" href="css/themes/light.min.css" media="(prefers-color-scheme: light)"/>
     <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body id="body">
@@ -41,10 +52,18 @@
         <div class="wrapper main__wrapper">
             <section class="skills-section">
                 <h2 class="visually-hidden">My Skills</h2>
-                <picture >
-                    <source type="image/webp" srcset="images/me.webp">
-                    <img src="images/me-2.png" class="skills-section__image" alt="My portrait" width="550">
-                </picture>
+                <div class="skills__me">
+                    <picture >
+                        <source type="image/webp" media="(max-width: 989.9px)" srcset="images/me.webp">
+                        <source media="(max-width: 989.9px)" srcset="images/me.jpg">
+                        <source type="image/webp" media="(min-width: 990px)" srcset="images/me-2.webp">
+                        <source media="(min-width: 990px)" srcset="images/me-2.jpg">
+
+                        <img src="images/me.png" class="skills-section__image" alt="My portrait" width="550">
+                    </picture>
+                    <img src="images/left_eye.png" alt="Left eye" class="skills__me__eye skills__me__left-eye">
+                    <img src="images/right_eye.png" alt="Right eye" class="skills__me__eye skills__me__right-eye">
+                </div>
                 <div class="skills">
                     <span class="skills__skill">HTML</span>
                     <span class="skills__skill">CSS</span>

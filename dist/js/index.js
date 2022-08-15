@@ -521,26 +521,46 @@
     return new Plugin();
   };
 
-  const Switcher = (classOfSwitcher) => {
+  function Switcher(classOfSwitcher) {
+      const lightStyles = document.querySelectorAll('link[rel=stylesheet][media*=prefers-color-scheme][media*=light]');
+      const darkStyles = document.querySelectorAll('link[rel=stylesheet][media*=prefers-color-scheme][media*=dark]');
+      const darkSchemeMedia = matchMedia('(prefers-color-scheme: dark)');
       const switcher = document.querySelector(`.${classOfSwitcher}`);
       const switcherButtons = switcher.querySelectorAll(`.${classOfSwitcher}__button`);
       
-      let currScheme = localStorage.getItem('theme');
-      if (currScheme === null) {
-          currScheme = 'auto';
-          localStorage.setItem('theme', currScheme);
+      function setupSwitcher() {
+          const savedScheme = getSavedScheme();
+          const currScheme = savedScheme || getSystemScheme();
+          setActiveClass(switcher.querySelector(`.${classOfSwitcher}__button--${currScheme}`));
+      
+          [...switcherButtons].forEach((btn) => {
+              btn.addEventListener('click', () => {
+                  setScheme(btn.textContent.toLowerCase());
+                  setActiveClass(btn);
+              });
+          });
       }
-      setActiveClass(switcher.querySelector(`.${classOfSwitcher}__button--${currScheme}`));
       
-      switcherButtons.forEach(button => {
-          button.addEventListener('click', e => {
-              const newScheme = button.textContent.toLowerCase();
-              localStorage.setItem('theme', newScheme);
-              currScheme = newScheme;
-              setActiveClass(button);
-          }); 
-      });    
+      function setupScheme() {
+          const savedScheme = getSavedScheme();
+          const systemScheme = getSystemScheme();
       
+          if (savedScheme === null) return;
+      
+          if (savedScheme !== systemScheme) {
+              setScheme(savedScheme);
+          }
+      }
+      
+      function setScheme(scheme) {
+          switchMedia(scheme);
+      
+          if (scheme === 'auto') {
+              clearScheme();
+          } else {
+              saveScheme(scheme);
+          }
+      }
       function setActiveClass(button) {
           if(button.classList.contains(`${classOfSwitcher}__button--active`)) return;
           button.classList.add(`${classOfSwitcher}__button--active`);
@@ -549,19 +569,59 @@
           });
           
       }
-  };
+      
+      function switchMedia(scheme) {
+          let lightMedia;
+          let darkMedia;
+      
+          if (scheme === 'auto') {
+              lightMedia = '(prefers-color-scheme: light)';
+              darkMedia = '(prefers-color-scheme: dark)';
+          } else {
+              lightMedia = (scheme === 'light') ? 'all' : 'not all';
+              darkMedia = (scheme === 'dark') ? 'all' : 'not all';
+          }
+      
+          [...lightStyles].forEach((link) => {
+              link.media = lightMedia;
+          });
+      
+          [...darkStyles].forEach((link) => {
+              link.media = darkMedia;
+          });
+      }
+      
+      function getSystemScheme() {
+          const darkScheme = darkSchemeMedia.matches;
+      
+          return darkScheme ? 'dark' : 'light';
+      }
+      
+      function getSavedScheme() {
+          return localStorage.getItem('color-scheme');
+      }
+      
+      function saveScheme(scheme) {
+          localStorage.setItem('color-scheme', scheme);
+      }
+      
+      function clearScheme() {
+          localStorage.removeItem('color-scheme');
+      }
+      setupSwitcher();
+      setupScheme();
+  }
 
-  /////////////////////////////////////////////
+  //******************************************
   // Particles
-  /////////////////////////////////////////////
+  //******************************************
   const particles = new Particles(window, document);
-
-  particles.init({
+  let particlesOptions = {
       selector: '#background',
       maxParticles: 1000,
       minDistance: 120,
       connectParticles: true,
-      color: '#cccccc',
+      color: getComputedStyle(document.documentElement).getPropertyValue('--links-color') || '#cccccc',
       sizeVariations: 5,
       speed: 0,
       responsive: [
@@ -590,20 +650,53 @@
               }
           }
       ]
-  });
+  };
+  particles.init(particlesOptions);
 
-  /////////////////////////////////////////////
+  //******************************************
   // Switcher
-  /////////////////////////////////////////////
+  //******************************************
   Switcher('header__theme-switcher');
-  /////////////////////////////////////////////
+  //******************************************
   // Menu
-  /////////////////////////////////////////////
+  //******************************************
   const hamburger = document.querySelector('.header__menu__touch');
   const menu = document.querySelector('.header__menu__list');
   hamburger.addEventListener('click', e => {
       hamburger.classList.toggle('header__menu__touch--expanded');
       menu.classList.toggle('header__menu__list--expanded');
   });
+
+  //******************************************
+  // Eyes constrol
+  //******************************************
+  let options = {
+      root: document.querySelector('body'),
+      rootMargin: '50%',
+      threshold: 1.0
+  };
+  let target = document.querySelector('.skills-section');
+
+  let windowWidth = window.innerWidth;
+  document.addEventListener('resize', () => windowWidth = window.innerWidth);
+
+  let watchTheEyes = (e) => {
+      const x = e.clientX;
+      let newShift = x / windowWidth * 12 - 6;
+      
+      document.documentElement.style.setProperty('--eyes-shift', newShift+'px');
+  };
+
+  let callback = (entries) => {
+      entries.forEach((entry) => {
+          if(entry.isIntersecting) {
+              document.addEventListener('mousemove', watchTheEyes);
+          } else {
+              document.removeEventListener('mousemove', watchTheEyes);
+          }
+      });
+  };
+  let observer = new IntersectionObserver(callback, options);
+  observer.observe(target);
 
 }());

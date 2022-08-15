@@ -1,5 +1,6 @@
 :root {
     --socials-size: 50px;
+    --eyes-shift: 0px;
 }
 /**********************************************/
 /* Fonts */
@@ -73,6 +74,7 @@ p, h1, h2, h3, h4, h5, h6 {
 html {
     font-size: 1rem;
     font-family: 'Open Sans', sans-serif;
+    color: var(--text-color);
 }
 .wrapper {
     width: 100%;
@@ -98,6 +100,7 @@ html {
     top: 0;
     left: 0;
     z-index: -1;
+    background-color: var(--bg-color);
 }
 .visually-hidden {
     clip: rect(0 0 0 0);
@@ -179,7 +182,7 @@ html {
     gap: 5px;
     border: 2px solid var(--indicator-bg-color);
     border-radius: 12px;
-    box-shadow: inset 0 0 16px 1px var(--indicator-bg-color);
+    box-shadow: inset 0 0 16px 1px var(--indicator-shadow-color);
 }
 .header__menu__list--expanded ~ .header__theme-switcher {
     margin-right: 47px;
@@ -287,7 +290,7 @@ html {
     background-color: var(--bg-color);
     border-radius: 10px;
     padding: 30px 0;
-    box-shadow: 0 0 6px 0px rgb(0 0 0 / 20%);
+    box-shadow: 0 0 6px 0px var(--shadow-color);
 }
 .skills-section {
     position: relative;
@@ -308,9 +311,16 @@ html {
     gap: 10px;
     padding: 0 10px;
 }
+.skills__me {
+    position: relative;
+}
+.skills__me__eye {
+    display: none;
+}
 .skills__skill {
     padding: 3px;
     background-color: var(--indicator-bg-color);
+    color: var(--text-color);
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.5rem;
     filter: opacity(0.5);
@@ -356,7 +366,7 @@ html {
     font-size: 1.5rem;
     text-align: center;
     margin: 10px 0;
-    background: linear-gradient(90deg, transparent, var(--indicator-bg-color), transparent);
+    background: linear-gradient(90deg, transparent, var(--project-name-bg), transparent);
     color: var(--heading-color);
 }
 .work__text {
@@ -370,7 +380,7 @@ html {
     width: 100%;
     text-decoration: none;
     background-color: var(--btn-bg);
-    color: #fff;
+    color: var(--btn-color);
     font-size: 1.125rem;
     padding: 10px 15px;
     border-radius: 6px;
@@ -407,6 +417,7 @@ html {
     background: var(--bg-color);
     margin: 5px;
     transition: all 0.3s linear;
+    box-sizing: content-box;
 }
 .footer__socials__link {
     display: flex;
