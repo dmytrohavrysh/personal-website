@@ -6,32 +6,22 @@
 /* Fonts */
 /**********************************************/
 @font-face {
-    font-family: 'Open Sans';
-    src: url('../fonts/OpenSans-Bold.woff2') format('woff2'),
-    url('../fonts/OpenSans-Bold.woff') format('woff');
+    font-family: Roboto;
+    src: url('../fonts/Roboto-Bold.woff2') format('woff2'),
+    url('../fonts/Roboto-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Open Sans';
-    src: url('../fonts/OpenSans.woff2') format('woff2'),
-    url('../fonts/OpenSans.woff') format('woff');
+    font-family: Roboto;
+    src: url('../fonts/Roboto-Regular.woff2') format('woff2'),
+    url('../fonts/Roboto-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
-
-@font-face {
-    font-family: 'Open Sans';
-    src: url('../fonts/OpenSans-Light.woff2') format('woff2'),
-    url('../fonts/OpenSans-Light.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
 
 /**********************************************/
 /* Reset */
@@ -67,13 +57,15 @@ p, h1, h2, h3, h4, h5, h6 {
 #root, #__next {
     isolation: isolate;
 }
-
+b {
+    color: var(--heading-color)
+}
 /**********************************************/
 /* Global */
 /**********************************************/
 html {
     font-size: 1rem;
-    font-family: 'Open Sans', sans-serif;
+    font-family: Roboto, sans-serif;
     color: var(--text-color);
 }
 .wrapper {
@@ -86,9 +78,10 @@ html {
     flex-wrap: wrap;
 }
 .section__heading {
+    width: 100%;
     font-size: 2rem;
     font-weight: bold;
-    margin: 20px auto 50px;
+    margin: 20px auto 40px;
     color: var(--heading-color);
     text-align: center;
 }
@@ -168,10 +161,21 @@ html {
     color: var(--link-color);
     font-size: 1.125rem;
     padding: 20px 0;
-    transition: background-color 0.3s ease-in-out;
+    background:
+        linear-gradient(currentColor 0 0) 0 0,
+        linear-gradient(currentColor 0 0) 0 0,
+        linear-gradient(currentColor 0 0) 0 100%,
+        linear-gradient(currentColor 0 0) 0 100%,
+        linear-gradient(currentColor 0 0) 100% 0,
+        linear-gradient(currentColor 0 0) 100% 0,
+        linear-gradient(currentColor 0 0) 100% 100%,
+        linear-gradient(currentColor 0 0) 100% 100%;
+    background-size: var(--d, 0) 3px, 3px var(--d, 0);
+    background-repeat: no-repeat;
+    transition: 0.5s;
 }
 .header__menu__link:hover {
-    background-color: var(--link-hover-color);
+  --d: 10px;
 }
 /**********************************************/
 /* Theme Switcher */
@@ -206,7 +210,9 @@ html {
     cursor: pointer;
     transition: filter 0.3s ease-in-out;
 }
-
+.header__theme-switcher__button:focus-visible {
+    border: 1px solid var(--indicator-text-color);
+}
 .header__theme-switcher__button--light {
     background-image: url(../images/sun.svg);
 }
@@ -287,15 +293,19 @@ html {
 /**********************************************/
 
 .main__wrapper {
-    background-color: var(--bg-color);
+    background-color: var(--side-menu-bg-color);
     border-radius: 10px;
-    padding: 30px 0;
+    padding: 0;
     box-shadow: 0 0 6px 0px var(--shadow-color);
 }
 .skills-section {
+    background-color: var(--bg-color);
     position: relative;
     width: 100%;
+    padding-top: 30px;
     padding-bottom: 15px;
+    margin-bottom: 50px;
+    box-shadow: inset 0px 1px 4px 0px var(--shadow-color);
 }
 
 .skills-section__image {
@@ -337,8 +347,9 @@ html {
 .works-section {
     position: relative;
     width: 100%;
-    background-color: var(--side-menu-bg-color);
-    box-shadow: inset 0px 1px 4px 0px var(--shadow-color);
+    margin-bottom: 50px;
+    background-color: var(--bg-color);
+    padding: 0 0 20px;
 }
 .works {
     padding: 0 20px ;
@@ -351,6 +362,7 @@ html {
     background-color: var(--bg-color);
     border-radius: 10px;
     margin-bottom: 20px;
+    box-shadow: 0 0 6px 0px var(--shadow-color);
 }
 
 .work:nth-of-type(2n-1) .work__picture{
@@ -359,25 +371,23 @@ html {
 }
 .work__image {
     width: 100%;
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.01) 0px 1px 3px 0px, rgba(27, 31, 35, 0.08) 0px 0px 0px 1px;
 }
 .work__heading {
     font-size: 1.5rem;
     text-align: center;
+    padding: 5px 0;
     margin: 10px 0;
     background: linear-gradient(90deg, transparent, var(--project-name-bg), transparent);
     color: var(--heading-color);
 }
 .work__text {
     font-size: 1.125rem;
-    text-align: justify;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
-.work__link {
+.link--button {
     display: inline-flex;
     justify-content: center;
-    width: 100%;
+    width: max-content;
     text-decoration: none;
     background-color: var(--btn-bg);
     color: var(--btn-color);
@@ -387,8 +397,71 @@ html {
     box-shadow: var(--btn-shadow-color) 0px 7px 25px 0px;
     transition: background-color 0.3s ease-in-out;
 }
-.work__link:hover {
+.link--button:hover {
     background-color: var(--btn-bg-hover);
+}
+.work__item {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+.work__item::before {
+    content: '✓';
+    font-weight: bold;
+    margin-right: 10px;
+    color: var(--success)
+}
+/**********************************************/
+/* About */
+/**********************************************/
+.about-section {
+    padding: 15px;
+    width: 80%;
+    margin: 0 auto;
+    background-color: var(--bg-color);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    font-size: 1.125rem;
+    border-radius: 10px;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+.about__left {
+    width: 100%;
+}
+.about__list {
+    border: 5px solid var(--side-menu-bg-color);
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.about__picture {
+    border-radius: 15px;
+    overflow: hidden;
+}
+.about__image {
+    width: 100%;
+}
+.about__item {
+    margin-bottom: 15px;
+}
+.about__text__p {
+    margin-bottom: 1rem;
+}
+/**********************************************/
+/* Contacts */
+/**********************************************/
+.contacts-section {
+    width: 100%;
+    background-color: var(--bg-color);
+    text-align: center;
+    padding: 20px 0 50px;
+    border-radius: 0 0 10px 10px;
+}
+.contacts__text {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
 }
 /**********************************************/
 /* Footer */

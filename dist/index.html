@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dmytro Havrysh</title>
+    <link rel="icon" href="favicon.png" type="image/x-icon">
     <meta name="color-scheme" content="light dark">
     <script>
       if (window.matchMedia('(prefers-color-scheme: dark)').media === 'not all') {
@@ -29,15 +30,15 @@
             </div>
             <nav class="header__menu">
                 <ul class="header__menu__list">
-                    <li class="header__menu__item"><a href="#" class="header__menu__link">Works</a></li>
-                    <li class="header__menu__item"><a href="#" class="header__menu__link">About me</a></li>
-                    <li class="header__menu__item"><a href="#" class="header__menu__link">Contact</a></li>
+                    <li class="header__menu__item"><a href="#works" class="header__menu__link">Works</a></li>
+                    <li class="header__menu__item"><a href="#about" class="header__menu__link">About me</a></li>
+                    <li class="header__menu__item"><a href="#contact" class="header__menu__link">Contact</a></li>
                 </ul>
                 <div class="header__theme-switcher" aria-label="Theme swither">
                     <button class="header__theme-switcher__button header__theme-switcher__button--light">Light</button>
                     <button class="header__theme-switcher__button header__theme-switcher__button--auto">Auto</button>
                     <button class="header__theme-switcher__button header__theme-switcher__button--dark">Dark</button>
-                    <div class="header__theme-switcher__indicator" tabIndex="-1"></div>
+                    <div class="header__theme-switcher__indicator" tabIndex="-1"></div> 
                 </div>
                 <button class="header__menu__touch" aria-label="Menu">
                     <span class="header__menu__touch__line"></span>
@@ -58,7 +59,6 @@
                         <source media="(max-width: 989.9px)" srcset="images/me.jpg">
                         <source type="image/webp" media="(min-width: 990px)" srcset="images/me-2.webp">
                         <source media="(min-width: 990px)" srcset="images/me-2.jpg">
-
                         <img src="images/me.png" class="skills-section__image" alt="My portrait" width="550">
                     </picture>
                     <img src="images/left_eye.png" alt="Left eye" class="skills__me__eye skills__me__left-eye">
@@ -83,14 +83,22 @@
                 </div>
             </section>
             <section class="works-section">
-                <h2 class="section__heading">Some Of My Latest Work</h2>
+                <h2 id="works" class="section__heading">Some Of My Latest Work</h2>
                 <div class="works">
                     <div class="work">
                         <div class="work__description">
                             <h3 class="work__heading">Vertex Academy website</h3>
-                            <p class="work__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
+                            <div class="work__text">
+                                <ul class="work__items">
+                                    <li class="work__item">Commercial web site</li>
+                                    <li class="work__item">Glide.js slider for the banner</li>
+                                    <li class="work__item">Google Captcha is connected to the forms</li>
+                                    <li class="work__item">The blog is made using Wordpress</li>
+                                    <li class="work__item">Multilingualism is implemented in the blog</li>
+                                </ul>
+                            </div>
                             <div class="work__footer">
-                                <a href="https://vertex-academy.com/en" class="work__link">View Project</a>
+                                <a href="https://vertex-academy.com/en" class="link--button">View Project</a>
                             </div>
                         </div>
                         <picture class="work__picture">
@@ -111,9 +119,19 @@
                         </picture>
                         <div class="work__description">
                             <h3 class="work__heading">Budget Diary App</h3>
-                            <p class="work__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
+                            <div class="work__text">
+                                <ul class="work__items">
+                                    <li class="work__item">React application</li>
+                                    <li class="work__item">Firebase as the backend</li>
+                                    <li class="work__item">TanStack Query as the state management</li>
+                                    <li class="work__item">Authentication & Authorization functionality</li>
+                                    <li class="work__item">Charts with the help of Apexcharts.js</li>
+                                    <li class="work__item">Dark and light color theme</li>
+                                    <li class="work__item">Fully responsive design</li>
+                                </ul> 
+                            </div>
                             <div class="work__footer">
-                                <a href="https://budget-diary.dmytro-havrysh.site" class="work__link">View Project</a>
+                                <a href="https://budget-diary.dmytro-havrysh.site" class="link--button">View Project</a>
                             </div>
                         </div>
                     </div>
@@ -127,9 +145,16 @@
                         </picture>
                         <div class="work__description">
                             <h3 class="work__heading">Quanterama website</h3>
-                            <p class="work__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
+                            <div class="work__text">
+                                <ul class="work__items">
+                                    <li class="work__item">Commercial web site</li>
+                                    <li class="work__item">Multipage</li>
+                                    <li class="work__item">The blog is made using Wordpress</li>
+                                    <li class="work__item">Fully responsive design</li>
+                                </ul>
+                            </div>
                             <div class="work__footer">
-                                <a href="https://quanterama.com" class="work__link">View Project</a>
+                                <a href="https://quanterama.com" class="link--button">View Project</a>
                             </div>
                         </div>
                     </div>
@@ -143,9 +168,18 @@
                         </picture>
                         <div class="work__description">
                             <h3 class="work__heading">Weather App</h3>
-                            <p class="work__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
+                            <div class="work__text">
+                                <ul class="work__items">
+                                    <li class="work__item">Openweather API</li>
+                                    <li class="work__item">Weather for current location</li>
+                                    <li class="work__item">5 days forecast</li>
+                                    <li class="work__item">City name suggestion</li>
+                                    <li class="work__item">PWA</li>
+                                    <li class="work__item">Fully responsive design</li>
+                                </ul>
+                            </div>
                             <div class="work__footer">
-                                <a href="https://weather.dmytro-havrysh.site" class="work__link">View Project</a>
+                                <a href="https://weather.dmytro-havrysh.site" class="link--button">View Project</a>
                             </div>
                         </div>
                     </div>
@@ -159,12 +193,46 @@
                         </picture>
                         <div class="work__description">
                             <h3 class="work__heading">Laptop Project</h3>
-                            <p class="work__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
+                            <div class="work__text">
+                                <ul class="work__items">
+                                    <li class="work__item">CSS only</li>
+                                    <li class="work__item">No image used</li>
+                                    <li class="work__item">Fully responsive</li>
+                                    <li class="work__item">As close as possible to the original</li>
+                                </ul>
+                            </div>
                             <div class="work__footer">
-                                <a href="https://laptop.dmytro-havrysh.site" class="work__link">View Project</a>
+                                <a href="https://laptop.dmytro-havrysh.site" class="link--button">View Project</a>
                             </div>
                         </div>
                     </div>
+                </section>
+                <section class="about-section">
+                    <h2 id="about" class="section__heading">About Me</h2>
+                    <div class="about__left">
+                        <picture class="about__picture">
+                            <source type="image/webp" srcset="images/me-color.webp">
+                            <img src="images/me-color.jpg" alt="Me" class="about__image">
+                        </picture>
+                    </div>
+                    <div class="about__right">
+                        <ul class="about__list">
+                            <li class="about__item">✈️ Can't live without <b>travels</b></li>
+                            <li class="about__item">📷 I have a passion for <b>photography</b>. You can find some of my works <a href="https://gurushots.com/dima_havrysh/photos">HERE</a></li>
+                            <li class="about__item">🏇 I love to compete, which is why I regularly participate in <b>coding competitions</b></li>
+                        </ul>
+                        <div class="about__text">
+                            <p class="about__text__p">My name is Dmytro Havrysh and I am a front-end developer from Kyiv, Ukraine.</p>
+                            <p class="about__text__p">My interest in programming started back in 2010 when I plunged headfirst into learning the principles of computer and web operation. After 2 years, I got my first order as a freelancer.</p>
+                            <p class="about__text__p">I received and deepened my knowledge at "Igor Sikorsky Kyiv Polytechnic Institute", numerous courses on Udemy, programmer friends, and many other sources.</p>
+                            <p class="about__text__p">Since then, I have worked as a freelancer at various freelance sites, a lecturer at a computer academy, a course development methodologist, and a web developer at a company.</p>
+                        </div>
+                    </div>
+                </section>
+                <section class="contacts-section">
+                    <h2 id="contact" class="section__heading">Get In Touch</h2>
+                    <p class="contacts__text">If you have any questions, feel free to email me. I will always be glad to answer you.</p>
+                    <a href="mailto:developer@dmytro-havrysh.site" class="link--button">Say Hello</a>
                 </section>
             </div> 
         </main>
