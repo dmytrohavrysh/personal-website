@@ -387,7 +387,7 @@ html {
 .link--button {
     display: inline-flex;
     justify-content: center;
-    width: max-content;
+    /* width: max-content; */
     text-decoration: none;
     background-color: var(--btn-bg);
     color: var(--btn-color);
@@ -409,6 +409,14 @@ html {
     font-weight: bold;
     margin-right: 10px;
     color: var(--success)
+}
+.work__footer {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+.work__button {
+    flex-grow: 1;
 }
 /**********************************************/
 /* About */
